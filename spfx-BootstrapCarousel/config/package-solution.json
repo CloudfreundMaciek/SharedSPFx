@@ -12,7 +12,27 @@
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": ""
-    }
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfx-bootstrap-carousel description"
+      },
+      "longDescription": {
+        "default": "spfx-bootstrap-carousel description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-bootstrap-carousel description BootstrapCarouselWebPart Feature",
+        "description": "The feature that activates BootstrapCarouselWebPart from the spfx-bootstrap-carousel solution.",
+        "id": "5ea7e18b-f61e-47d3-8c8e-024aac092e8b",
+        "version": "1.0.0.0",
+        "componentIds": ["5ea7e18b-f61e-47d3-8c8e-024aac092e8b"]
+      }
+    ]
   },
   "paths": {
     "zippedPackage": "solution/spfx-bootstrap-carousel.sppkg"
