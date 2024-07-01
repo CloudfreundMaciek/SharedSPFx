@@ -17,6 +17,7 @@
     "@microsoft/sp-property-pane": "1.19",
     "@microsoft/sp-webpart-base": "1.19.0",
     "@pnp/graph": "^4.2.0",
+    "@pnp/sp": "^4.2.0",
     "bootstrap": "^4.6.0",
     "office-ui-fabric-react": "7.199.1",
     "react": "17.0.1",
