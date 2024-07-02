@@ -35,14 +35,9 @@ export default class BootstrapCarouselWebPart extends BaseClientSideWebPart<IBoo
   }
 
   public render(): void {
-    const element: React.ReactElement<IBootstrapCarouselProps> = React.createElement(
-      BootstrapCarousel,
-      {
-        description: this.properties.description,
-        maxSlides: this.properties.maxSlides,
-        sp: this.sp
-      }
-    );
+    const element: React.ReactElement<IBootstrapCarouselProps> = (
+      <BootstrapCarousel sp={this.sp} maxSlides={this.properties.maxSlides} />
+    )
 
     ReactDom.render(element, this.domElement);
   }
