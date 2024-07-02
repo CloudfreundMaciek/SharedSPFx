@@ -1,3 +1,7 @@
+import { ISlide } from "../BootstrapCarouselWebPart";
+
 export interface IBootstrapCarouselState {
-  index:number;
+  index: number,
+  slides?: ISlide[],
+  errorMessage?: string,
 }

@@ -1,6 +1,7 @@
-import { ISlide } from "../BootstrapCarouselWebPart";
+import { SPFI } from "@pnp/sp";
 
 export interface IBootstrapCarouselProps {
-  description: string;
-  slides: ISlide[]
+  description: string,
+  maxSlides: number,
+  sp: SPFI
 }

@@ -21,7 +21,8 @@
     "description": { "default": "BootstrapCarousel description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "BootstrapCarousel"
+      "description": "BootstrapCarousel",
+      "maxSlides": 10
     }
   }]
 }

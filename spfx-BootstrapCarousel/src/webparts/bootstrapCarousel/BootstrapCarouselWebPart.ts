@@ -10,42 +10,27 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import * as strings from 'BootstrapCarouselWebPartStrings';
 import BootstrapCarousel from './components/BootstrapCarousel';
 import { IBootstrapCarouselProps } from './components/IBootstrapCarouselProps';
-//import { SPFx, graphfi } from '@pnp/graph';
-//import "@pnp/graph/lists";
-//import "@pnp/graph/sites";
 
-import { SPFx, spfi } from '@pnp/sp';
-import "@pnp/sp/sites";
-import "@pnp/sp/lists";
-import "@pnp/sp/items";
-import "@pnp/sp/webs";
-import "@pnp/sp/clientside-pages";
-import "@pnp/sp/files/folder";
-import "@pnp/sp/folders";
-import { IItem } from '@pnp/sp/items';
+import { SPFI, SPFx, spfi } from '@pnp/sp';
 
 export interface IBootstrapCarouselWebPartProps {
-  description: string;
+  description: string,
+  maxSlides: number
 }
 
 export interface ISlide {
   title: string,
-  bannerUrl: string
+  bannerUrl: string,
+  pageRelativeUrl: string
 }
 
 export default class BootstrapCarouselWebPart extends BaseClientSideWebPart<IBootstrapCarouselWebPartProps> {
-  slides;
+  private sp: SPFI;
 
   protected async onInit(): Promise<void> {
-    //const graph = graphfi().using(SPFx(this.context));
     const sp = spfi().using(SPFx(this.context));
 
-    const sitePagesFiles = await sp.web.folders.getByUrl("SitePages").files();
-    const sitePagesPromises = sitePagesFiles.map(v => sp.web.loadClientsidePage(v.ServerRelativeUrl));
-    const sitePages = await Promise.all(sitePagesPromises);
-    const sitePagesWithBanner = sitePages.filter(v => v.bannerImageUrl && v.bannerImageUrl !== '');
-    
-    this.slides = sitePagesWithBanner.map(v => ({ bannerUrl: v.bannerImageUrl, title: v.title }));
+    this.sp = sp;
     return Promise.resolve();
   }
 
@@ -54,7 +39,8 @@ export default class BootstrapCarouselWebPart extends BaseClientSideWebPart<IBoo
       BootstrapCarousel,
       {
         description: this.properties.description,
-        slides: this.slides
+        maxSlides: this.properties.maxSlides,
+        sp: this.sp
       }
     );
 
